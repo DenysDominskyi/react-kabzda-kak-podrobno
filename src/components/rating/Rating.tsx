@@ -4,72 +4,15 @@ type RatingPropsType = {
     value: 0 | 1 | 2 | 3 | 4 | 5 
 }
 export function Rating({ value }: RatingPropsType) {
-    if ((value === 1)) {
-        return (
-            <div>
-                <Star selected={true} />
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-            </div>
-        )
-    }
-    else if ((value === 2)) {
-        return (
-            <div>
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-            </div>
-        )
-    }
-    else if ((value === 3)) {
-        return (
-            <div>
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={false} />
-                <Star selected={false} />
-            </div>
-        )
-    }
-    else if ((value === 4)) {
-        return (
-            <div>
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={false} />
-            </div>
-        )
-    }
-    else if ((value === 5)) {
-        return (
-            <div>
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-                <Star selected={true} />
-            </div>
-        )
-    } 
-    else {
-        return (
-            <div>
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-                <Star selected={false} />
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Star selected={value > 0} />
+            <Star selected={value > 1} />
+            <Star selected={value > 2} />
+            <Star selected={value > 3} />
+            <Star selected={value > 4} />
+        </div>
+    )
 }
 
 type StarPropsType = {

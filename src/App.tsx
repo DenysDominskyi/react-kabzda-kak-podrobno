@@ -1,17 +1,17 @@
 import './App.css';
 import { Accordion } from './components/accordion/Accordion';
+import { OnOff } from './components/OnOff/OnOff';
 import { Rating } from './components/rating/Rating';
 
 function App() {
   return (
     <div>
-      <PageTitle title='Page 1'/>
-      Article 1
-      <Rating value={3}/>
       <Accordion accordionTitle='title 1' collapsed={true}/>
       <Accordion accordionTitle='title 2' collapsed={false}/>
-      Article 2
+
       <Rating value={4}/>
+
+      <OnOff value={true}/>
     </div>
   );
 }
