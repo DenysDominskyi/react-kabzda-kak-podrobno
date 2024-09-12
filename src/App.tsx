@@ -1,17 +1,21 @@
 import './App.css';
 import { Accordion } from './components/accordion/Accordion';
+import { UncontroledAccordion } from './components/accordion/UncontroledAccordion';
 import { OnOff } from './components/OnOff/OnOff';
 import { Rating } from './components/rating/Rating';
+import { UncontroledRating } from './components/rating/UncontroledRating';
 
 function App() {
   return (
-    <div>
-      <Accordion accordionTitle='title 1' collapsed={true}/>
-      <Accordion accordionTitle='title 2' collapsed={false}/>
-
-      <Rating value={4}/>
-
+    <div className='app'>
       <OnOff value={true}/>
+      <OnOff />
+
+      <UncontroledAccordion accordionTitle='title 1'/>
+      <UncontroledAccordion accordionTitle='title 2'/>
+
+      <UncontroledRating />
+
     </div>
   );
 }

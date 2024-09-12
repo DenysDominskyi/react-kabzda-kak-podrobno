@@ -1,20 +1,28 @@
 import React, { useState } from 'react'
+import './OnOff.css'
 
 type OnOffPropsType = {
-    value: boolean
+    value?: boolean
 }
 
 export const OnOff = (props: OnOffPropsType) => {
+    
     const [colorState, setColorState] = useState(props.value)
+    const styleData = {
+        styleOn: 'repeating-linear-gradient(-45deg, white, white 10%, #00c800 0, #00c800 8px)',
+        styleOff: 'repeating-linear-gradient(-45deg, white, white 10%, red 0, red 8px)',
+    }
 
     return (
-        <div style={{ display: 'flex', padding: '20px', gap: '5px' }}>
+        <div className='onOffDiv'>
             <button
-                style={{backgroundColor: `${colorState ? 'green' : ''}`}}
+                className='styledButton'
+                style={{ background: `${colorState ? styleData.styleOn : '#fff'}` }}
                 onClick={() => setColorState(true)}
             >On</button>
             <button
-                style={{backgroundColor: `${colorState ? '' : 'red'}`}}
+                className='styledButton'
+                style={{ background: `${colorState ? '#fff' : styleData.styleOff}` }}
                 onClick={() => setColorState(false)}
             >Off</button>
             <span style={
@@ -23,7 +31,7 @@ export const OnOff = (props: OnOffPropsType) => {
                     width: '20px',
                     height: '20px',
                     borderRadius: '50%',
-                    backgroundColor: `${colorState ? 'green' : 'red'}`,
+                    backgroundColor: `${colorState ? '#00c800' : 'red'}`,
                 }}
             ></span>
         </div>

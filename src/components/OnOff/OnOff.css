@@ -1,0 +1,17 @@
+.onOffDiv {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 5px;
+}
+
+.styledButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-shadow: 1px 1px 3px #ffffff, -1px -1px 3px #ffffff, 0 0 5px #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #010a5b;
+    outline: 3px solid rgb(255, 255, 255);
+    outline-offset: -4px;
+}
