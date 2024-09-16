@@ -2,11 +2,12 @@
 type AccordionPropsType = {
   accordionTitle: string,
   collapsed: boolean
+  onTClick: () => void
 }
 export function Accordion(props: AccordionPropsType) {
     return (
       <div>
-        <AccordionTitle title = {props.accordionTitle}/>
+        <AccordionTitle title = {props.accordionTitle} onTClick={props.onTClick}/>
         {!props.collapsed && <AccordionBody />}
       </div>
     )
@@ -14,10 +15,11 @@ export function Accordion(props: AccordionPropsType) {
   
   type AccordionTitleTextPropsType = {
     title: string
+    onTClick: () => void
   }
   function AccordionTitle(props: AccordionTitleTextPropsType) {
     return (
-      <h3>{props.title}</h3>
+      <h3 onClick={props.onTClick}>{props.title}</h3>
     )
   }
   function AccordionBody() {

@@ -28,9 +28,7 @@ function AccordionTitle(props: AccordionTitleTextPropsType) {
         props.onTitleClickHandler()
     }
     return (
-        <div onClick={onClickHandler}>
-            <h3 style={{cursor: 'pointer'}}>{props.title}</h3>
-        </div>
+        <h3 onClick={onClickHandler} style={{cursor: 'pointer'}}>{props.title}</h3>
     )
 }
 function AccordionBody() {

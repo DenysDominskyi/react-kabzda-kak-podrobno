@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import './OnOff.css'
 
 type OnOffPropsType = {
-    value: boolean
-    changeValue: (value: boolean)=>void
+    value?: boolean
 }
 
-export const OnOff = ({value, changeValue}: OnOffPropsType) => {
+export const UncontrolledOnOff = (props: OnOffPropsType) => {
     
-    // const [colorState, setColorState] = useState(props.value)
+    const [colorState, setColorState] = useState(props.value)
     const styleData = {
         styleOn: 'repeating-linear-gradient(-45deg, white, white 10%, #00c800 0, #00c800 8px)',
         styleOff: 'repeating-linear-gradient(-45deg, white, white 10%, red 0, red 8px)',
@@ -18,13 +17,13 @@ export const OnOff = ({value, changeValue}: OnOffPropsType) => {
         <div className='onOffDiv'>
             <button
                 className='styledButton'
-                style={{ background: `${value ? styleData.styleOn : '#fff'}` }}
-                onClick={() => changeValue(true)}
+                style={{ background: `${colorState ? styleData.styleOn : '#fff'}` }}
+                onClick={() => setColorState(true)}
             >On</button>
             <button
                 className='styledButton'
-                style={{ background: `${value ? '#fff' : styleData.styleOff}` }}
-                onClick={() => changeValue(false)}
+                style={{ background: `${colorState ? '#fff' : styleData.styleOff}` }}
+                onClick={() => setColorState(false)}
             >Off</button>
             <span style={
                 {
@@ -32,7 +31,7 @@ export const OnOff = ({value, changeValue}: OnOffPropsType) => {
                     width: '20px',
                     height: '20px',
                     borderRadius: '50%',
-                    backgroundColor: `${value ? '#00c800' : 'red'}`,
+                    backgroundColor: `${colorState ? '#00c800' : 'red'}`,
                 }}
             ></span>
         </div>
