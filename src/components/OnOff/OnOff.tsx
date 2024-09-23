@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './OnOff.css'
 
-type OnOffPropsType = {
+export type OnOffPropsType = {
     value: boolean
-    changeValue: (value: boolean)=>void
+    changeValue: (value: boolean) => void
 }
 
-export const OnOff = ({value, changeValue}: OnOffPropsType) => {
-    
+export const OnOff = ({ value, changeValue }: OnOffPropsType) => {
+
     // const [colorState, setColorState] = useState(props.value)
     const styleData = {
         styleOn: 'repeating-linear-gradient(-45deg, white, white 10%, #00c800 0, #00c800 8px)',

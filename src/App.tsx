@@ -20,7 +20,7 @@ function App() {
 
       <UncontroledAccordion accordionTitle='Menu 1' />
 
-      <UncontroledRating />
+      {/* <UncontroledRating /> */}
       <Accordion
         accordionTitle='Controled accordion'
         collapsed={accordionCollapsed}
