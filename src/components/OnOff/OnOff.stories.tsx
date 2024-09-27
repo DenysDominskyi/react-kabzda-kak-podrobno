@@ -3,7 +3,7 @@ import { OnOff } from "./OnOff";
 import { action } from "@storybook/addon-actions";
 
 export default {
-    component: OnOff
+    title: 'OnOff'
 }
 const callback = action('onOff changed')
 export const OnOffTurnedOn = () => {

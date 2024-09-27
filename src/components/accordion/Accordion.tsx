@@ -1,33 +1,57 @@
+type ItemType = {
+  title: string
+  value: any
+}
 
+// accordion
 type AccordionPropsType = {
   accordionTitle: string,
   collapsed: boolean
-  onTClick: () => void
+  onTitleClick: () => void
+  items: ItemType[]
+  onClick: (value: any) => void
 }
 export function Accordion(props: AccordionPropsType) {
-    return (
-      <div>
-        <AccordionTitle title = {props.accordionTitle} onTClick={props.onTClick}/>
-        {!props.collapsed && <AccordionBody />}
-      </div>
-    )
-  }
-  
-  type AccordionTitleTextPropsType = {
-    title: string
-    onTClick: () => void
-  }
-  function AccordionTitle(props: AccordionTitleTextPropsType) {
-    return (
-      <h3 onClick={props.onTClick}>{props.title}</h3>
-    )
-  }
-  function AccordionBody() {
-    return (
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    )
-  }
+  return (
+    <div>
+      <AccordionTitle title={props.accordionTitle} onTitleClick={props.onTitleClick} />
+      {!props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
+    </div>
+  )
+}
+
+// title
+type AccordionTitlePropsType = {
+  title: string
+  onTitleClick: () => void
+}
+function AccordionTitle(props: AccordionTitlePropsType) {
+  return (
+    <h3 onClick={props.onTitleClick}>{props.title}</h3>
+  )
+}
+
+// body
+type AccordionBodyPropsType = {
+  items: ItemType[]
+  onClick: (value: any) => void
+}
+function AccordionBody(props: AccordionBodyPropsType) {
+  return (
+    <ul>
+      {props.items.map((item, index) => {
+        const onClickHandler = () => {
+          props.onClick(item.value)
+        }
+        return (
+          <li
+            key={index}
+            onClick={onClickHandler}
+          >
+            {item.title}
+          </li>
+        )
+      })}
+    </ul>
+  )
+}

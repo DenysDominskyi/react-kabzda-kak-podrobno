@@ -4,10 +4,16 @@ import { Accordion } from './components/accordion/Accordion';
 import { UncontroledAccordion } from './components/accordion/UncontroledAccordion';
 import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
 import { Rating, RatingValueType } from './components/rating/Rating';
-import { UncontroledRating } from './components/rating/UncontroledRating';
+// import { UncontroledRating } from './components/rating/UncontroledRating';
 import { OnOff } from './components/OnOff/OnOff';
+import { Select } from './components/select/Select';
 
 function App() {
+  const items = [
+    { title: 'Yoda', value: 1 }, 
+    { title: 'Darth Vader', value: 2 }, 
+    { title: 'Chubacka', value: 3 }, 
+    { title: 'Obi Wan Kenobi', value: 4 }]
 
   let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
@@ -24,16 +30,18 @@ function App() {
       <Accordion
         accordionTitle='Controled accordion'
         collapsed={accordionCollapsed}
-        onTClick={() => setAccordionCollapsed(!accordionCollapsed)}
+        onTitleClick={() => setAccordionCollapsed(!accordionCollapsed)}
+        items={[]}
+        onClick={() => { }}
       />
       <Rating value={ratingValue} onClick={setRatingValue} />
 
+      <Select
+        onSelect={() => { }}
+        items={items}
+      />
     </div>
   );
-}
-
-function PageTitle(props: { title: string }) {
-  return <h1>{props.title}</h1>
 }
 
 export default App;
