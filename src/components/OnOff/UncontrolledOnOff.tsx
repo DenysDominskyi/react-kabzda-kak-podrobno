@@ -5,7 +5,8 @@ type OnOffPropsType = {
     value?: boolean
 }
 
-export const UncontrolledOnOff = (props: OnOffPropsType) => {
+const UncontrolledOnOffForMemo = (props: OnOffPropsType) => {
+    console.log('UncontrolledOnOff')
     
     const [colorState, setColorState] = useState(props.value)
     const styleData = {
@@ -38,3 +39,4 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
     )
 }
 
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffForMemo) 

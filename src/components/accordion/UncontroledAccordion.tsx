@@ -1,20 +1,22 @@
-import { useState } from "react"
+import React, { useReducer, useState } from "react"
+import { reducer, TOGGLE_COLLAPSED } from "./reducer"
 
 type AccordionPropsType = {
     accordionTitle: string
 }
 
-export const UncontroledAccordion = (props: AccordionPropsType) => {
-    const [collapsed, setCollapsed] = useState(true)
+const UncontroledAccordionForMemo = (props: AccordionPropsType) => {
+    console.log('UncontroledAcordion')
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     function toggleHandler() {
-        setCollapsed(!collapsed)
+        dispatch({type: TOGGLE_COLLAPSED})
     }
 
     return (
         <div>
             <AccordionTitle title={props.accordionTitle} onTitleClickHandler={toggleHandler}/>
-            {!collapsed && <AccordionBody />}
+            {!state.collapsed && <AccordionBody />}
         </div>
     )
 }
@@ -40,3 +42,5 @@ function AccordionBody() {
         </ul>
     )
 }
+
+export const UncontroledAccordion = React.memo(UncontroledAccordionForMemo)

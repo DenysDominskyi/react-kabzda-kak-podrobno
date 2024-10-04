@@ -4,20 +4,21 @@ import { Accordion } from './components/accordion/Accordion';
 import { UncontroledAccordion } from './components/accordion/UncontroledAccordion';
 import { UncontrolledOnOff } from './components/OnOff/UncontrolledOnOff';
 import { Rating, RatingValueType } from './components/rating/Rating';
-// import { UncontroledRating } from './components/rating/UncontroledRating';
+import { UncontroledRating } from './components/rating/UncontroledRating';
 import { OnOff } from './components/OnOff/OnOff';
 import { Select } from './components/select/Select';
 
 function App() {
   const items = [
-    { title: 'Yoda', value: 1 }, 
-    { title: 'Darth Vader', value: 2 }, 
-    { title: 'Chubacka', value: 3 }, 
+    { title: 'Yoda', value: 1 },
+    { title: 'Darth Vader', value: 2 },
+    { title: 'Chubacka', value: 3 },
     { title: 'Obi Wan Kenobi', value: 4 }]
 
   let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
   const [colorState, setColorState] = useState(false)
+  console.log('App')
 
   return (
     <div className='app'>
@@ -26,7 +27,6 @@ function App() {
 
       <UncontroledAccordion accordionTitle='Menu 1' />
 
-      {/* <UncontroledRating /> */}
       <Accordion
         accordionTitle='Controled accordion'
         collapsed={accordionCollapsed}
@@ -34,7 +34,8 @@ function App() {
         items={[]}
         onClick={() => { }}
       />
-      <Rating value={ratingValue} onClick={setRatingValue} />
+
+      <UncontroledRating onChange={setRatingValue} />
 
       <Select
         onSelect={() => { }}

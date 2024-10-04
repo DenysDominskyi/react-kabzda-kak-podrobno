@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import './rating.css'
 
 type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
@@ -8,7 +8,8 @@ type RatingPropsType = {
     onChange: (value: RatingValueType) => void
 }
 
-export const UncontroledRating = (props: RatingPropsType) => {
+const UncontroledRatingForMemo = (props: RatingPropsType) => {
+    console.log('UncontroledRating')
     let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
     return (
@@ -38,3 +39,4 @@ function Star({ selected, setValue }: StarPropsType) {
         <span className={selected ? 'star on' : 'star'} onClick={onClick}></span>
     )
 }
+export const UncontroledRating = React.memo(UncontroledRatingForMemo)

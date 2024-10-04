@@ -6,9 +6,8 @@ export type OnOffPropsType = {
     changeValue: (value: boolean) => void
 }
 
-export const OnOff = ({ value, changeValue }: OnOffPropsType) => {
-
-    // const [colorState, setColorState] = useState(props.value)
+const OnOffForMemo = ({ value, changeValue }: OnOffPropsType) => {
+    console.log("OnOff")
     const styleData = {
         styleOn: 'repeating-linear-gradient(-45deg, white, white 10%, #00c800 0, #00c800 8px)',
         styleOff: 'repeating-linear-gradient(-45deg, white, white 10%, red 0, red 8px)',
@@ -39,3 +38,4 @@ export const OnOff = ({ value, changeValue }: OnOffPropsType) => {
     )
 }
 
+export const OnOff = React.memo(OnOffForMemo)

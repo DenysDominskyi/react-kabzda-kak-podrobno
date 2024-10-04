@@ -1,9 +1,9 @@
-.custom-select {
+.customSelect {
     position: relative;
     width: 200px;
   }
   
-  .custom-select__trigger {
+  .customSelect__trigger {
     background: #fff;
     border: 1px solid #cccccc;
     border-radius: 5px;
@@ -15,11 +15,11 @@
     transition: .2s;
   }
   
-  .custom-select__trigger:hover {
+  .customSelect__trigger:hover {
     background: #f6fcff;
   }
   
-  .custom-select__dropdown {
+  .customSelect__dropdown {
     position: absolute;
     top: -100%;
     left: 0;
@@ -32,19 +32,19 @@
     transform: scale(0);
     transition: .3s;
 }
-.custom-select__dropdown.show{
+.customSelect__dropdown.show{
     top: 100%;
     opacity: 1;
     transform: scale(1);
   }
   
-  .custom-select__option {
+  .customSelect__option {
     padding: 10px;
     cursor: pointer;
   }
   
-  .custom-select__option:hover {
-    background: #f6fcff;
+  .customSelect__option.selected {
+    background: #d5f1ff;
   }
 
   .arrow {
@@ -68,10 +68,10 @@
     transform: rotate3d(0, 0, 1, -45deg);
   }
 
-  .custom-select:hover .arrow{
+  .customSelect:hover .arrow{
     transform: rotate3d(1, 0.4, 0, 185deg) translate3d(3px, -3px, 0);
   }
- .custom-select:hover .arrow.up {
+ .customSelect:hover .arrow.up {
     transform: rotate3d(0, 0, 1, -45deg) translate3d(0, 0, 0);
   }
   
