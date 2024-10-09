@@ -13,7 +13,8 @@ function App() {
     { title: 'Yoda', value: 1 },
     { title: 'Darth Vader', value: 2 },
     { title: 'Chubacka', value: 3 },
-    { title: 'Obi Wan Kenobi', value: 4 }]
+    { title: 'Obi Wan Kenobi', value: 4 }
+  ]
 
   let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
