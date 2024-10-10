@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo, useState } from 'react'
+import React, { ChangeEvent, useCallback, useMemo, useState } from 'react'
 
 export default {
     title: 'useMemo'
@@ -106,13 +106,13 @@ export const UseMemoWithCities = () => {
         setCounter((n) => n + 1)
     }
 
-    const stateOne = useMemo(()=>{
+    const stateOne = useMemo(() => {
         return state.filter(obj => obj.id === 1)
     }, [state])
-    const stateTwo = useMemo(()=>{
+    const stateTwo = useMemo(() => {
         return state.filter(obj => obj.id === 2)
     }, [state])
-    const stateThree = useMemo(()=>{
+    const stateThree = useMemo(() => {
         return state.filter(obj => obj.id === 3)
     }, [state])
 
@@ -126,9 +126,9 @@ export const UseMemoWithCities = () => {
             <hr />
             <div>
                 <h3>Cities with more than 1 million population</h3>
-                <CitiesSelect state={stateOne}/>
-                <CitiesSelect state={stateTwo}/>
-                <CitiesSelect state={stateThree}/>
+                <CitiesSelect state={stateOne} />
+                <CitiesSelect state={stateTwo} />
+                <CitiesSelect state={stateThree} />
             </div>
         </>
     )
@@ -153,3 +153,38 @@ const CitiesSelectForMemo = ({ state }: CitiesSelectProps) => {
     </select>
 }
 const CitiesSelect = React.memo(CitiesSelectForMemo)
+
+// ---------------------------------------- example 4 -------------------------------------
+// useCallBack
+
+export const LikeUseCallback = () => {
+    console.log("LikeUseCallback")
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(["React", "CSS", "JS", "TS"])
+
+    const memoizedAddBook = useMemo(()=>{
+        return () => {
+            let newBook = `Angular ${new Date().getTime()}`
+            setBooks([...books, newBook])
+        }
+    }, [books])
+
+    const memoizedAddBook2 = useCallback(() => {        //useCallback
+        let newBook = `Angular ${new Date().getTime()}` //
+        setBooks([...books, newBook])                   //
+    }, [books])                                         //
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <div>{counter}</div>
+        <Book addBook={memoizedAddBook} />
+    </>
+}
+
+const BookSecret = (props: { addBook: () => void }) => {
+    console.log('Book secret')
+    return <div>
+        <button onClick={() => props.addBook()}>add Book</button>
+    </div>
+}
+const Book = React.memo(BookSecret)

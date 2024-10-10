@@ -7,7 +7,7 @@ export type OnOffPropsType = {
 }
 
 const OnOffForMemo = ({ value, changeValue }: OnOffPropsType) => {
-    console.log("OnOff")
+    // console.log("OnOff")
     const styleData = {
         styleOn: 'repeating-linear-gradient(-45deg, white, white 10%, #00c800 0, #00c800 8px)',
         styleOff: 'repeating-linear-gradient(-45deg, white, white 10%, red 0, red 8px)',
