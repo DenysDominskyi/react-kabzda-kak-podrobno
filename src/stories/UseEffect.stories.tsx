@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Clock } from "../components/Clock/Clock"
 
 
 export default {
@@ -64,27 +65,6 @@ export const SetTimeoutExample = () => {
 }
 
 export const ClockExample = () => {
-    let time = new Date()
 
-    const [hours, setHours] = useState(time.getHours())
-    const [minutes, setMinutes] = useState(time.getMinutes())
-    const [seconds, useSeconds] = useState(time.getSeconds())
-
-    console.log("SetTimeoutExample")
-
-    useEffect(() => {
-
-        setInterval(() => {
-            time = new Date()
-
-            setHours(() => time.getHours())
-            setMinutes(() => time.getMinutes())
-            useSeconds(() => time.getSeconds())
-        }, 1000)
-
-    }, [])
-
-    return <>
-        Time: {hours}:{minutes}:{seconds}
-    </>
+    return <Clock />
 }
